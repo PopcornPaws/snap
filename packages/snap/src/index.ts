@@ -1,6 +1,6 @@
 import { OnRpcRequestHandler } from '@metamask/snaps-types';
 import { panel, text } from '@metamask/snaps-ui';
-import { add } from "snap-rs";
+const add = require("snap-rs/wasm_bindgen");
 
 /**
  * Handle incoming JSON-RPC requests, sent through `wallet_invokeSnap`.

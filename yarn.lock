@@ -20262,8 +20262,8 @@ __metadata:
 
 "snap-rs@file:../../snap-rs/pkg::locator=snap%40workspace%3Apackages%2Fsnap":
   version: 0.1.0
-  resolution: "snap-rs@file:../../snap-rs/pkg#../../snap-rs/pkg::hash=079ef2&locator=snap%40workspace%3Apackages%2Fsnap"
-  checksum: 3877a6c1ce85d36ba8c815e46f7a2c5d1e6f9d75e81c28aff0246f499b6f40a53b0a8562d9e8a3df24c3e26be43041f9bc4c38b6d0e0035fa384b41710661eef
+  resolution: "snap-rs@file:../../snap-rs/pkg#../../snap-rs/pkg::hash=ba5cb2&locator=snap%40workspace%3Apackages%2Fsnap"
+  checksum: 9226ad93d22d84a5ff8feb98e254b6cb4a0bf6c881bb40c30d51d31114ff361633ed75038db153b29c89110d2c8503bc33604feac38267b0999f25197cc3444f
   languageName: node
   linkType: hard
 
