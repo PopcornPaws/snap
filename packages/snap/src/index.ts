@@ -1,5 +1,6 @@
 import { OnRpcRequestHandler } from '@metamask/snaps-types';
 import { panel, text } from '@metamask/snaps-ui';
+import { add } from "snap-rs";
 
 /**
  * Handle incoming JSON-RPC requests, sent through `wallet_invokeSnap`.
@@ -27,7 +28,18 @@ export const onRpcRequest: OnRpcRequestHandler = ({ origin, request }) => {
           ]),
         },
       });
+    case 'yello':
+      const sum = add(3, 4);
+      return snap.request({
+        method: 'snap_dialog',
+        params: {
+          type: 'confirmation',
+          content: panel([
+              text(`Sum of 3 and 4 is ${sum}`),
+          ]),
+        },
+      });
     default:
-      throw new Error('Method not found.');
+      throw new Error('Method not found lol.');
   }
 };

@@ -4,6 +4,9 @@ build/
 coverage/
 .cache/
 public/
+target/
+
+Cargo.lock
 
 # Logs
 logs

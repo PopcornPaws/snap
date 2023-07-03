@@ -19923,6 +19923,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"snap-rs@file:../../snap-rs/pkg::locator=snap%40workspace%3Apackages%2Fsnap":
+  version: 0.1.0
+  resolution: "snap-rs@file:../../snap-rs/pkg#../../snap-rs/pkg::hash=ba5cb2&locator=snap%40workspace%3Apackages%2Fsnap"
+  checksum: 9226ad93d22d84a5ff8feb98e254b6cb4a0bf6c881bb40c30d51d31114ff361633ed75038db153b29c89110d2c8503bc33604feac38267b0999f25197cc3444f
+  languageName: node
+  linkType: hard
+
 "snap@workspace:packages/snap":
   version: 0.0.0-use.local
   resolution: "snap@workspace:packages/snap"
@@ -19952,6 +19959,7 @@ __metadata:
     prettier: ^2.2.1
     prettier-plugin-packagejson: ^2.2.11
     rimraf: ^3.0.2
+    snap-rs: "file:../../snap-rs/pkg"
     through2: ^4.0.2
     ts-jest: ^29.1.0
     typescript: ^4.7.4
