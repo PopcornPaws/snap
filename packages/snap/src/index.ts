@@ -64,7 +64,7 @@ export const onRpcRequest: OnRpcRequestHandler = async ({
 
   switch (request.method) {
     case 'hello':
-      const result = wasm.add(1, 2);
+      const result = wasm.add(...(request.params as [number, number]));
 
       return snap.request({
         method: 'snap_dialog',
