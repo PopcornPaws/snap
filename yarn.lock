@@ -3053,6 +3053,7 @@ __metadata:
     "@metamask/eslint-config-typescript": ^10.0.0
     "@typescript-eslint/eslint-plugin": ^5.33.0
     "@typescript-eslint/parser": ^5.33.0
+    asc: ^2.0.3
     eslint: ^8.21.0
     eslint-config-prettier: ^8.1.0
     eslint-plugin-import: ^2.26.0
@@ -6144,6 +6145,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"asc@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "asc@npm:2.0.3"
+  dependencies:
+    async: 3.2.4
+    doublescore: 1.0.1
+  checksum: 85df69ff8316301bd744627b5b825b27ecc01e4e30f263e33833b525375cd4fe7392440d3ffa0ca29036855358bd579e7ae9d3347e82dcde1aea8c0a0d2369ba
+  languageName: node
+  linkType: hard
+
 "asn1.js@npm:^5.2.0":
   version: 5.4.1
   resolution: "asn1.js@npm:5.4.1"
@@ -6206,6 +6217,13 @@ __metadata:
   version: 1.5.2
   resolution: "async@npm:1.5.2"
   checksum: fe5d6214d8f15bd51eee5ae8ec5079b228b86d2d595f47b16369dec2e11b3ff75a567bb5f70d12d79006665fbbb7ee0a7ec0e388524eefd454ecbe651c124ebd
+  languageName: node
+  linkType: hard
+
+"async@npm:3.2.4":
+  version: 3.2.4
+  resolution: "async@npm:3.2.4"
+  checksum: 43d07459a4e1d09b84a20772414aa684ff4de085cbcaec6eea3c7a8f8150e8c62aa6cd4e699fe8ee93c3a5b324e777d34642531875a0817a35697522c1b02e89
   languageName: node
   linkType: hard
 
@@ -8954,6 +8972,13 @@ __metadata:
   version: 8.6.0
   resolution: "dotenv@npm:8.6.0"
   checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
+  languageName: node
+  linkType: hard
+
+"doublescore@npm:1.0.1":
+  version: 1.0.1
+  resolution: "doublescore@npm:1.0.1"
+  checksum: c5acf9a0be1f3cb662f4e5d64ab921a64f753bb3fb8e112456a242fbfab3d1a2b20fb157aa9bf3bb855a8362ad248073b78c4dcb06d6c2a066ea5da86e7cdd03
   languageName: node
   linkType: hard
 

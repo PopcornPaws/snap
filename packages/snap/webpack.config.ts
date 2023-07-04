@@ -28,11 +28,11 @@ const config: Configuration = {
       {
         test: /\.wasm$/u,
         type: 'asset/inline',
-        generator: {
-          dataUrl: (content: any) => {
-            return bytesToHex(content);
-          },
-        },
+        //generator: {
+        //  dataUrl: (content: any) => {
+        //    return bytesToHex(content);
+        //  },
+        //},
       },
     ],
   },
