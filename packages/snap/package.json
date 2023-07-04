@@ -23,13 +23,14 @@
     "lint:fix": "yarn lint:eslint --fix && yarn lint:misc --write",
     "lint:misc": "prettier '**/*.json' '**/*.md' '!CHANGELOG.md' --ignore-path .gitignore",
     "serve": "mm-snap serve",
-    "start": "mm-snap watch",
+    "start": "concurrently --names webpack,server \"webpack watch\" \"http-server --no-dotfiles --port 8080 .\"",
     "test": "jest"
   },
   "dependencies": {
     "@metamask/rpc-errors": "^5.1.1",
     "@metamask/snaps-types": "^0.32.2",
     "@metamask/snaps-ui": "^0.32.2",
+    "@metamask/utils": "6.1.0",
     "buffer": "^6.0.3"
   },
   "devDependencies": {
