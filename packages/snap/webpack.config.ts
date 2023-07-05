@@ -28,11 +28,11 @@ const config: Configuration = {
       {
         test: /\.wasm$/u,
         type: 'asset/inline',
-        //generator: {
-        //  dataUrl: (content: any) => {
-        //    return bytesToHex(content);
-        //  },
-        //},
+        generator: {
+          dataUrl: (content: any) => {
+            return bytesToHex(content);
+          },
+        },
       },
     ],
   },
@@ -43,7 +43,6 @@ const config: Configuration = {
       '@metamask/permission-controller': false,
       'is-svg': false,
     },
-    /*
     fallback: {
       assert: false,
       child_process: false,
@@ -62,7 +61,8 @@ const config: Configuration = {
       util: false,
       worker_threads: false,
       zlib: false,
-    },*/
+    },
+    /* eslint-enable @typescript-eslint/naming-convention */
   },
   optimization: {
     minimize: true,

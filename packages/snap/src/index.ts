@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { rpcErrors } from '@metamask/rpc-errors';
 import { OnRpcRequestHandler } from '@metamask/snaps-types';
 import { hexToBytes } from '@metamask/utils';
@@ -5,7 +6,9 @@ import { panel, text } from '@metamask/snaps-ui';
 
 import program from '../../../snap-rs/pkg/snap_rs_bg.wasm';
 
-let wasm;
+type Program = typeof import('../../../snap-rs/pkg/snap_rs');
+
+let wasm: Program;
 /**
  * Instantiate the WASM module and store the exports in `wasm`. This function
  * is called lazily, when the first JSON-RPC request is received.
@@ -22,10 +25,10 @@ let wasm;
  */
 const initializeWasm = async () => {
   try {
-    throw new Error(`program: ${program}`);
-    const { instance } = await WebAssembly.instantiate(program, {});
+    const bytes = hexToBytes(program as unknown as string);
+    const { instance } = await WebAssembly.instantiate(bytes, {});
 
-    wasm = instance.exports;
+    wasm = instance.exports as Program;
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Failed to instantiate WebAssembly module.', error);
@@ -43,33 +46,42 @@ const initializeWasm = async () => {
  *
  * @param params - The request parameters.
  * @param params.request - The JSON-RPC request object.
+ * @param params.origin - almafa
  * @returns The JSON-RPC response.
  * @see https://docs.metamask.io/snaps/reference/exports/#onrpcrequest
  * @see https://docs.metamask.io/snaps/reference/rpc-api/#wallet_invokesnap
  * @see https://docs.metamask.io/snaps/reference/permissions/#endowmentwebassembly
  * @see https://developer.mozilla.org/docs/WebAssembly
  */
-export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => {
+export const onRpcRequest: OnRpcRequestHandler = async ({
+  origin,
+  request,
+}) => {
   // Instantiate the WASM module if it hasn't been instantiated yet.
   if (!wasm) {
     await initializeWasm();
   }
-  throw new Error(`wasm add function: ${Object.keys(wasm)}`);
-  //const result = wasm_bindgen.add(1, 2);
-  //throw new Error(`result: ${result}`);
 
-  // For this example, we don't validate the request. We assume that the
-  // request is valid, and that the snap is only called with valid requests. In
-  // a real snap, you should validate the request before calling the WASM
-  // module.
-  //const method = request.method as Method;
-  //const params = request.params as Parameters<Program[typeof method]>;
+  switch (request.method) {
+    case 'hello':
+      const result = wasm.add(...(request.params as [number, number]));
 
-  //if (wasm[method]) {
-  //  return wasm[method](...params);
-  //}
-
-  //throw rpcErrors.methodNotFound({ data: { request } });
+      return snap.request({
+        method: 'snap_dialog',
+        params: {
+          type: 'confirmation',
+          content: panel([
+            text(`Hello, **${origin}**! Result is ${result}`),
+            text('This custom confirmation is just for display purposes.'),
+            text(
+              'But you can edit the snap source code to make it do something, if you want to!',
+            ),
+          ]),
+        },
+      });
+    default:
+      throw rpcErrors.methodNotFound({ data: { request } });
+  }
 };
 
 /**
